@@ -29,7 +29,7 @@ function useForm() {
         return response.json();
       })
       .then((response) => {
-        setMessage(`Result: ${response.result}`);
+        setMessage(`Precio del vehículo: $${response.result} USD`);
         setStatus('success');
       })
       .catch((err) => {

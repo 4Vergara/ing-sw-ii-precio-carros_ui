@@ -15,7 +15,7 @@ const Form = () => {
     if (status === "success") {
         return (
             <>
-                <div className="text-2xl">Thank you!</div>
+                <div className="text-2xl">Gracias por utilizar el software</div>
                 <div className="text-md">{message}</div>
             </>
         );
@@ -24,7 +24,7 @@ const Form = () => {
     if (status === "error") {
         return (
             <>
-                <div className="text-2xl">Something bad happened!</div>
+                <div className="text-2xl">Hubo un error en la ejecuci&oacute;n</div>
                 <div className="text-md">{message}</div>
             </>
         );
@@ -35,7 +35,9 @@ const Form = () => {
             action={FORM_ENDPOINT}
             onSubmit={handleSubmit}
             method="GET"
-        >
+        >   <div className="pt-0 mb-3">
+                <h1>Predictor de precios de veh&iacute;culos</h1>
+            </div>
             <div className="pt-0 mb-3">
                 <input
                     type="number"
