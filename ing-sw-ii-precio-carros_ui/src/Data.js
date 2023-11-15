@@ -1,4 +1,4 @@
-const FORM_ENDPOINT = "http://10.3.2.12:5000/PredictorPrecioCarro/predictor";
+const FORM_ENDPOINT = "http://localhost:5000/PredictorPrecioCarro/predictor";
 
 const us_states = [
     {label:"Alabama", value: "AL"},
