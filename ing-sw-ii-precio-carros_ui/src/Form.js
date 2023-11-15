@@ -63,20 +63,22 @@ const Form = () => {
                     name="kilometraje"
                     className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
                     required
-                />
+                    />
             </div>
             <div className="pt-0 mb-3">
                 <Select
+                    placeholder="Modelo"
                     name="modelo"
                     value={modelo}
                     onChange={onchangeSelectModelo}
                     options={modelos}
                     className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
                     required
-                />
+                    />
             </div>
             <div className="pt-0 mb-3">
                 <Select
+                    placeholder="Estado"
                     name="estado"
                     value={estado}
                     onChange={onchangeSelectEstado}
