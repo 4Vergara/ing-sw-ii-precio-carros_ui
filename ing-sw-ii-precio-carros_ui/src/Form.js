@@ -5,11 +5,20 @@ import Select from "react-select";
 
 const Form = () => {
     const { handleSubmit, status, message } = useForm();
-    const {FORM_ENDPOINT, modelos} = getConfig();
-    const [modelo, setGate] = useState(modelos[0]);
+    const {FORM_ENDPOINT, us_states, model_codes} = getConfig();
+    const [estado, setEstado] = useState(us_states[0]);
+    const [modelo, setModelo] = useState(model_codes[0]);
+    const modelos = model_codes.map(modelo => ({
+                value: modelo,
+                label: modelo
+            }));
 
-    const onchangeSelect = (item) => {
-        setGate(item);
+    const onchangeSelectEstado = (item) => {
+        setEstado(item);
+    };
+    
+    const onchangeSelectModelo = (item) => {
+        setModelo(item);
     };
 
     if (status === "success") {
@@ -57,33 +66,25 @@ const Form = () => {
                 />
             </div>
             <div className="pt-0 mb-3">
-                <input
-                    type="text"
-                    placeholder="Modelo"
+                <Select
                     name="modelo"
+                    value={modelo}
+                    onChange={onchangeSelectModelo}
+                    options={modelos}
                     className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
                     required
                 />
             </div>
             <div className="pt-0 mb-3">
-                <input
-                    type="text"
-                    placeholder="Estado"
+                <Select
                     name="estado"
+                    value={estado}
+                    onChange={onchangeSelectEstado}
+                    options={us_states}
                     className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
                     required
                 />
             </div>
-            {/* <div className="pt-0 mb-3">
-                <Select
-                    name="modelo"
-                    value={modelo}
-                    onChange={onchangeSelect}
-                    options={modelos}
-                    className="focus:outline-none focus:ring relative w-full px-3 py-3 text-sm text-gray-600 placeholder-gray-400 bg-white border-0 rounded shadow outline-none"
-                    required
-                />
-            </div> */}
             {status !== "loading" && (
                 <div className="pt-0 mb-3">
                     <button
